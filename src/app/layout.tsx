@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Josefin_Sans } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -7,17 +7,17 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const josefinSans = Josefin_Sans({
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
     template: "%s / The Wild Oasis",
-    default: "Welcome / The Wild Oasis"
+    default: "Welcome / The Wild Oasis",
   },
-  description: "Luxurious cabin hotel"
+  description: "Luxurious cabin hotel",
 };
 
 export default function RootLayout({
@@ -26,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>
+    <html lang="en">
+      <body className={`${josefinSans.className} ${geistSans.className}`}>
         {children}
       </body>
     </html>
